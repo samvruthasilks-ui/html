@@ -1,6 +1,6 @@
 :root {
     --coffee-dark: #3E2723;
-    --coffee-medium: #b5a928;
+    --coffee-medium:  #D4AF37;
     --coffee-light: #C4A484;
     --coffee-accent: #D2B48C;
     --coffee-cream: #2a0232;
@@ -31,13 +31,49 @@ body {
 
 /* Header */
 header {
-    background: #1a011f;
+    background: #320234;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     padding: 10px 0;
     transition: all 0.4s ease;
+}
+
+
+/* Moving Line */
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--coffee-gold),
+        transparent
+    );
+    animation: movingLine 3s linear infinite;
+}
+
+/* Animated Live Line */
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--coffee-gold),
+        transparent
+    );
+    background-size: 200% 100%;
+    animation: liveLine 3s linear infinite;
 }
 
 .header-container {
@@ -60,8 +96,8 @@ header {
 }
 
 .logo-text {
-    font-family: 'Playwrite CU', serif;
-    font-size: 28px;
+    font-family: 'Montseat', serif;
+    font-size: 50px;
     font-weight: 900;
     color: var(--coffee-medium);
     letter-spacing: 1px;
@@ -123,7 +159,7 @@ nav a:hover::after {
 
 .btn-primary {
     background: var(--coffee-medium);
-    color: white;
+    color: rgb(12, 11, 11);
 }
 
 .btn-primary:hover {
@@ -156,7 +192,7 @@ nav a:hover::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #0B0705 0%, #010000 50%);
+    background: linear-gradient(135deg, #320234 0%,#320234 50%);
     z-index: -1;
 }
 
@@ -168,30 +204,14 @@ nav a:hover::after {
 
 .hero-content {
     width: 750px;
-    color: var(--text-light);
-}
-
-.hero-subtitle {
-    font-size: 20px;
-    color: var(--coffee-accent);
-    margin: 20px 0 60px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.hero-subtitle::before {
-    content: '';
-    width: 50px;
-    height: 2px;
-    background: var(--coffee-gold);
+    color: var(--coffee-gold);
 }
 
 .hero-title {
     font-size: 58px;
     line-height: 1.1;
     margin-bottom: 25px;
-    color: var(--text-light);
+    color: var(--coffee-gold);
 }
 
 .hero-title span {
@@ -212,7 +232,7 @@ nav a:hover::after {
 /* Products Section */
 .product {
     padding: 120px 0;
-    background-color: #2a0232;
+    background-color:#320234;
     border-top: 4px solid var(--coffee-gold);
 }
 
@@ -443,4 +463,13 @@ footer {
     to{
         opacity: 1;
     } 
+}
+/* Add your new keyframes BELOW this */
+@keyframes liveLine {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
 }
