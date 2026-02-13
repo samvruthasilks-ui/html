@@ -271,27 +271,7 @@
             e.preventDefault(); // prevent form submission
             const email = loginForm.querySelector('input[type="email"]').value;
             const mobile = loginForm.querySelector('input[type="tel"]').value;
-            loginForm.addEventListener('submit', async function (e) {
-                e.preventDefault();
-                const email = loginForm.querySelector('input[type="email"]').value;
-                const mobile = loginForm.querySelector('input[type="tel"]').value;
-
-                try {
-                    const response = await fetch('/save-user', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ email, mobile })
-                    });
-
-                    const result = await response.json();
-                    alert(result.message);  // show success message
-                    popup.style.display = 'none'; // hide popup
-                } catch (err) {
-                    alert('Error saving data!');
-                    console.error(err);
-                }
-            });
-
+            console.log('Email:', email, 'Mobile:', mobile);
 
             // Hide popup after submission
             popup.style.display = 'none';

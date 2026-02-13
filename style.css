@@ -3,7 +3,7 @@
     --coffee-medium:  #D4AF37;
     --coffee-light: #C4A484;
     --coffee-accent: #D2B48C;
-    --coffee-cream: #2a0232;
+    --coffee-cream: #320232;
     --coffee-gold: #D4AF37;
     --text-dark: #f5de4d;
     --text-light: #f3f3f3;
@@ -436,7 +436,7 @@ footer {
     height: 40px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
-    color: var(--coffee-cream);
+    color: var(--coffee-accent);
     font-size: 18px;
     transition: all 0.3s ease;
 }
