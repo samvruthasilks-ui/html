@@ -262,65 +262,42 @@
     </footer>
 
     <!-- JavaScript -->
-    <script>
-        // Popup handling
-        const popup = document.getElementById('loginPopup');
-        const loginForm = document.getElementById('loginForm');
+    <!-- JavaScript -->
+<script>
+    // Popup reference (popup will show by default via CSS)
+    const popup = document.getElementById('loginPopup');
 
-        loginForm.addEventListener('submit', function (e) {
-            e.preventDefault(); // prevent form submission
-            const email = loginForm.querySelector('input[type="email"]').value;
-            const mobile = loginForm.querySelector('input[type="tel"]').value;
-            loginForm.addEventListener('submit', async function (e) {
-                e.preventDefault();
-                const email = loginForm.querySelector('input[type="email"]').value;
-                const mobile = loginForm.querySelector('input[type="tel"]').value;
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href'))
+                .scrollIntoView({
+                    behavior: 'smooth'
+                });
+        });
+    });
 
-                try {
-                    const response = await fetch('/save-user', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ email, mobile })
-                    });
+    // Product hover animations
+    const productCards = document.querySelectorAll('.product-card');
 
-                    const result = await response.json();
-                    alert(result.message);  // show success message
-                    popup.style.display = 'none'; // hide popup
-                } catch (err) {
-                    alert('Error saving data!');
-                    console.error(err);
-                }
-            });
-
-
-            // Hide popup after submission
-            popup.style.display = 'none';
+    productCards.forEach(card => {
+        card.addEventListener('mouseenter', function () {
+            this.style.transform = 'translateY(-15px)';
         });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href'))
-                    .scrollIntoView({
-                        behavior: 'smooth'
-                    });
-            });
+        card.addEventListener('mouseleave', function () {
+            this.style.transform = 'translateY(0)';
         });
+    });
+    <footer>
+   <a href="https://forms.gle/RdzWdNCm5Z9RtBKf7" target="_blank" style="display:none;">
+      Admin Data
+   </a>
+</footer>
 
-        // Product hover animations
-        const productCards = document.querySelectorAll('.product-card');
+</script>
 
-        productCards.forEach(card => {
-            card.addEventListener('mouseenter', function () {
-                this.style.transform = 'translateY(-15px)';
-            });
-
-            card.addEventListener('mouseleave', function () {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-    </script>
 
 </body>
 
