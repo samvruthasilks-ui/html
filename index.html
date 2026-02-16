@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samvrutha Silks</title>
-
+      
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- -->
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -264,90 +266,52 @@
     </footer>
 
 <!-- JavaScript -->
-    <script>
-        
-        // Popup handling
-        const popup = document.getElementById('loginPopup');
-        const loginForm = document.getElementById('loginForm');
+<script>
+    // Get popup and form
+    const popup = document.getElementById('loginPopup');
+    const loginForm = document.getElementById('loginForm');
 
-         // ✅ ADD YOUR GOOGLE APPS SCRIPT URL HERE
+    // Google Apps Script Web App URL
     const scriptURL = "https://script.google.com/macros/s/AKfycbywobQ-W9O-LZ-mUkEnxrHwG6MgKpntNCXMbCKzYTCsjioycyA48jotsAx7D2qh7fdz8w/exec";
 
+    // Handle form submit (ONLY ONE listener)
+    loginForm.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-        loginForm.addEventListener('submit', function (e) {
-            e.preventDefault(); // prevent form submission
-            fetch(scriptURL,{
-                method: 'POST',
-                body:new FormData(loginForm)
-            })
-                    .then(res => res.text())
+        fetch(scriptURL, {
+            method: 'POST',
+            body: new FormData(loginForm)
+        })
+        .then(response => response.text())
         .then(result => {
             alert("Details saved successfully!");
-            popup.style.display = 'none'; // hide popup
             loginForm.reset();
-        })
-
-         .catch(err => {
-            alert("Error saving data!");
-            console.error(err);
-        });
-    
-            const email = loginForm.querySelector('input[type="email"]').value;
-            const mobile = loginForm.querySelector('input[type="tel"]').value;
-            loginForm.addEventListener('submit', async function (e) {
-                e.preventDefault();
-                const email = loginForm.querySelector('input[type="email"]').value;
-                const mobile = loginForm.querySelector('input[type="tel"]').value;
-
-                try {
-                    const response = await fetch('/save-user', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ email, mobile })
-                    });
-
-                    const result = await response.json();
-                    alert(result.message);  // show success message
-                    popup.style.display = 'none'; // hide popup
-                } catch (err) {
-                    alert('Error saving data!');
-                    console.error(err);
-                }
-            });
-
-
-            // Hide popup after submission
             popup.style.display = 'none';
+        })
+        .catch(error => {
+            alert("Error saving data!");
+            console.error(error);
         });
+    });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href'))
-                    .scrollIntoView({
-                        behavior: 'smooth'
-                    });
-            });
+    // Smooth scrolling (your existing feature)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href'))
+                .scrollIntoView({ behavior: 'smooth' });
         });
+    });
 
-        // Product hover animations
-        const productCards = document.querySelectorAll('.product-card');
-
-        productCards.forEach(card => {
-            card.addEventListener('mouseenter', function () {
-                this.style.transform = 'translateY(-15px)';
-            });
-
-            card.addEventListener('mouseleave', function () {
-                this.style.transform = 'translateY(0)';
-            });
+    // Product hover animation (your existing feature)
+    document.querySelectorAll('.product-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-15px)';
         });
-
-    </script>
-    <!-- GOOGLE APP SCRIPT CONNECTION -->
-     <script>
-        const scripyURL = "https://script.google.com/macros/s/AKfycbywobQ-W9O-LZ-mUkEnxrHwG6MgKpntNCXMbCKzYTCsjioycyA48jotsAx7D2qh7fdz8w/exec";
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+        });
+    });
 </script>
 </body>
 
