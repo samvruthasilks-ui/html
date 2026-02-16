@@ -20,6 +20,8 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Playwrite+CU:wght@100..400&display=swap"
         rel="stylesheet">
 
+        <!-- GOOGLE APP SCRIPT CONNECTION-->
+
     <style>
         /* Popup styles */
         .popup {
@@ -76,10 +78,11 @@
             <p>Please enter your details to continue</p>
 
             <form id="loginForm">
-                <input type="email" placeholder="Enter your Gmail" required>
-                <input type="tel" placeholder="Enter your Mobile Number" required>
+                <input type="email" name="Gmail" placeholder="Enter your Gmail" required>
+                <input type="tel" name="MobileNumber" placeholder="Enter your Mobile Number" required>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+
         </div>
     </div>
 
@@ -262,12 +265,33 @@
 
 <!-- JavaScript -->
     <script>
+        
         // Popup handling
         const popup = document.getElementById('loginPopup');
         const loginForm = document.getElementById('loginForm');
 
+         // ✅ ADD YOUR GOOGLE APPS SCRIPT URL HERE
+    const scriptURL = "https://script.google.com/macros/s/AKfycbywobQ-W9O-LZ-mUkEnxrHwG6MgKpntNCXMbCKzYTCsjioycyA48jotsAx7D2qh7fdz8w/exec";
+
+
         loginForm.addEventListener('submit', function (e) {
             e.preventDefault(); // prevent form submission
+            fetch(scriptURL,{
+                method: 'POST',
+                body:new FormData(loginForm)
+            })
+                    .then(res => res.text())
+        .then(result => {
+            alert("Details saved successfully!");
+            popup.style.display = 'none'; // hide popup
+            loginForm.reset();
+        })
+
+         .catch(err => {
+            alert("Error saving data!");
+            console.error(err);
+        });
+    
             const email = loginForm.querySelector('input[type="email"]').value;
             const mobile = loginForm.querySelector('input[type="tel"]').value;
             loginForm.addEventListener('submit', async function (e) {
@@ -321,13 +345,10 @@
         });
 
     </script>
-    <form id="contact-form">
-  <input type="email" name="email" placeholder="Enter your Gmail" required>
-  <input type="tel" name="mobile" placeholder="Enter Mobile Number" required>
-  <button type="submit">Submit</button>
-</form>
-
-
+    <!-- GOOGLE APP SCRIPT CONNECTION -->
+     <script>
+        const scripyURL = "https://script.google.com/macros/s/AKfycbywobQ-W9O-LZ-mUkEnxrHwG6MgKpntNCXMbCKzYTCsjioycyA48jotsAx7D2qh7fdz8w/exec";
+</script>
 </body>
 
 </html>
