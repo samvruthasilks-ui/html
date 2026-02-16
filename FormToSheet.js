@@ -9,7 +9,7 @@ const handleSubmit = (e)=>{
     fetch(url,{
         method: "POST",
         headers: {" Content-Type": "application/x-www-form-urlencoded"}
-    body:(Mobile number=${e.target.mobilenumber.value} &Email=${e.target.email.value})
+    body:(Gmail=${e.target.Gmail.value} &MobileNumber=${e.target.MobileNumber.value})
 }).then(res=>res.text()).then(data=>{
     alert(data)
 }).catch(error=>console.log(error))
@@ -19,8 +19,8 @@ const handleSubmit = (e)=>{
         <div>
             <h1>react to sheet</h1>
             <form  onSubmit= {handleSubmit}>
-                <input name= 'mobile numbr ' placeholder='Mobile numer'/><br/>
-                <input name = 'email' placeholder='Email'/> <br/>
+                <input name= 'gmail ' placeholder='gmail'/><br/>
+                <input name = 'mobileNumber' placeholder='Mobile Number'/> <br/>
                 <button>Add</button>
                 </form>
         </div>
