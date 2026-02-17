@@ -480,8 +480,13 @@ footer {
 /* ============================= */
 
 @media (max-width: 768px) {
+header {
+        height: 55px;          /* FIXED SMALL HEIGHT */
+        padding: 0;}
 
     /* Logo smaller */
+
+
     .logo-text {
         font-size: 15px;
     }
@@ -556,38 +561,4 @@ footer {
 }
 
 
-/* ============================= */
-/* EXTRA COMPACT MOBILE HEADER */
-/* ============================= */
-
-@media (max-width: 768px) {
-
-    header {
-        height: 55px;          /* FIXED SMALL HEIGHT */
-        padding: 0;
-    }
-
-    .header-container {
-        height: 100%;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo-text {
-        font-size: 18px;
-        line-height: 1;
-    }
-
-    /* Hide menu & buttons on mobile */
-    nav ul,
-    .nav-buttons {
-        display: none;
-    }
-
-    /* Reduce hero top space */
-    .hero {
-        padding-top: 55px;
-        min-height: calc(100vh - 55px);
-    }
-}
+ 
