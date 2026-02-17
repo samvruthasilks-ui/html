@@ -483,7 +483,7 @@ footer {
 
     /* Logo smaller */
     .logo-text {
-        font-size: 15px;
+        font-size: 9px;
     }
 
     /* Navigation stack */
@@ -491,7 +491,7 @@ footer {
         flex-direction: column;
         gap: 4px;
         background: #320234;
-        padding: 20px 0;
+        padding: 10px 0;
     }
 
     .header-container {
@@ -510,7 +510,7 @@ footer {
     }
 
     .hero-title {
-        font-size: 36px;
+        font-size: 10px;
     }
 
     .hero-text {
@@ -529,11 +529,11 @@ footer {
     }
 
     .section-title {
-        font-size: 28px;
+        font-size: 20px;
     }
 
     .section-desc {
-        font-size: 15px;
+        font-size: 6px;
     }
 
     /* Product grid single column */
