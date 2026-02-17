@@ -483,7 +483,7 @@ footer {
 
     /* Logo smaller */
     .logo-text {
-        font-size: 9px;
+        font-size: 15px;
     }
 
     /* Navigation stack */
@@ -491,7 +491,7 @@ footer {
         flex-direction: column;
         gap: 4px;
         background: #320234;
-        padding: 10px 0;
+        padding: 20px 0;
     }
 
     .header-container {
@@ -510,7 +510,7 @@ footer {
     }
 
     .hero-title {
-        font-size: 10px;
+        font-size: 36px;
     }
 
     .hero-text {
@@ -529,11 +529,11 @@ footer {
     }
 
     .section-title {
-        font-size: 20px;
+        font-size: 28px;
     }
 
     .section-desc {
-        font-size: 6px;
+        font-size: 15px;
     }
 
     /* Product grid single column */
@@ -553,4 +553,41 @@ footer {
         transform: translateX(-50%);
     }
 
+}
+
+
+/* ============================= */
+/* EXTRA COMPACT MOBILE HEADER */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+    header {
+        height: 55px;          /* FIXED SMALL HEIGHT */
+        padding: 0;
+    }
+
+    .header-container {
+        height: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo-text {
+        font-size: 18px;
+        line-height: 1;
+    }
+
+    /* Hide menu & buttons on mobile */
+    nav ul,
+    .nav-buttons {
+        display: none;
+    }
+
+    /* Reduce hero top space */
+    .hero {
+        padding-top: 55px;
+        min-height: calc(100vh - 55px);
+    }
 }
