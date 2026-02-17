@@ -489,14 +489,14 @@ footer {
     /* Navigation stack */
     nav ul {
         flex-direction: column;
-        gap: 15px;
+        gap: 4px;
         background: #320234;
         padding: 20px 0;
     }
 
     .header-container {
         flex-direction: column;
-        gap: 15px;
+        gap: 4px;
     }
 
     /* Hero section fix */
